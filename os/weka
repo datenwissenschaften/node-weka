@@ -1,0 +1,2 @@
+#!/bin/bash
+java -classpath /Applications/weka-3-6-11-oracle-jvm.app/Contents/Java/weka.jar $*
