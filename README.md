@@ -13,23 +13,26 @@ Proxy for nodejs and Weka Machine Learning
 
 ## Usage
 
-  var weka = require('./lib/weka-lib.js');
-  
-  //See Weka Documentation
-  var options = {
-    //'classifier': 'weka.classifiers.bayes.NaiveBayes',
-    'classifier': 'weka.classifiers.functions.SMO',
-    'params'    : ''
-  };
+```javascript
+var weka = require('./lib/weka-lib.js');
 
-  var testData = {
-    outlook    : 'sunny',
-    windy      : 'TRUE',
-    temperature: 30,
-    humidity   : 2,
-    play       : 'no'
-  };
+//See Weka Documentation
+var options = {
+  //'classifier': 'weka.classifiers.bayes.NaiveBayes',
+  'classifier': 'weka.classifiers.functions.SMO',
+  'params'    : ''
+};
 
-  weka.classify(data, testData, options, function (err, result) {
-    console.log(result);
-  });
+var testData = {
+  outlook    : 'sunny',
+  windy      : 'TRUE',
+  temperature: 30,
+  humidity   : 2,
+  play       : 'no'
+};
+
+weka.classify(data, testData, options, function (err, result) {
+  console.log(result);
+});
+
+```
