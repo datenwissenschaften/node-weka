@@ -46,7 +46,7 @@ arff.load('./test/training.arff', function (err, data) {
   };
 
   var testData = {
-    outlook    : 'sunny',
+    outlook    : 'overcast',
     windy      : 'TRUE',
     temperature: 30,
     humidity   : 2,

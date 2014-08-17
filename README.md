@@ -6,15 +6,18 @@ Proxy for nodejs and Weka Machine Learning
 
 * nodejs
 * npm
+* [weka](http://www.cs.waikato.ac.nz/~ml/weka/downloading.html)
 
 ## Install
 
-* Put the os/weka script in your $PATH
+Adjust the os/weka script to the weka directory and put it in your $PATH variable (resp. /usr/local/bin/weka) 
 
 ## Usage
 
 ```javascript
 var weka = require('./lib/weka-lib.js');
+
+var data = ... //ARFF json format (see [node-arff](https://github.com/chesles/node-arff))
 
 //See Weka Documentation
 var options = {
@@ -32,7 +35,9 @@ var testData = {
 };
 
 weka.classify(data, testData, options, function (err, result) {
-  console.log(result);
+  
+  console.log(result); //{ predicted: 'yes', prediction: '0.96' }
+  
 });
 
 ```
