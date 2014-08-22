@@ -47,14 +47,34 @@ arff.load('./test/training.arff', function (err, data) {
 
   var testData = {
     outlook    : 'overcast',
-    windy      : 'TRUE',
     temperature: 30,
     humidity   : 2,
+    windy      : 'TRUE',
     play       : 'no'
   };
 
   weka.classify(data, testData, options, function (err, result) {
-    console.log(result);
+    console.log(result); // { predicted: 'yes', prediction: '1' }
+  });
+
+});
+
+//Sample clustering with EM
+arff.load('./test/glass.arff', function (err, data) {
+
+  if (!_.isNull(err)) {
+    console.log(err);
+    return;
+  }
+
+  //See Weka Documentation
+  var options = {
+    'clusterer': 'weka.clusterers.EM',
+    'params'    : ''
+  };
+
+  weka.cluster(data, options, function (err, result) {
+    console.log(result); // see test/test.json
   });
 
 });
