@@ -1,6 +1,8 @@
-# node-weka
+# node-weka - nodejs wrapper for Weka functions
 
-Proxy for nodejs and Weka Machine Learning
+## Overview
+
+Provides a convenient wrapper for calling Weka functions from nodejs.
 
 ## Prerequisites
 
@@ -8,7 +10,7 @@ Proxy for nodejs and Weka Machine Learning
 * npm
 * [weka](http://www.cs.waikato.ac.nz/~ml/weka/downloading.html)
 
-## Install
+## Installation
 
 Adjust the os/weka script to the weka directory and put it in your $PATH variable (resp. /usr/local/bin/weka) 
 
@@ -36,7 +38,7 @@ var testData = {
 
 weka.classify(data, testData, options, function (err, result) {
   
-  console.log(result); //{ predicted: 'yes', prediction: '0.96' }
+  console.log(result); //{ predicted: 'yes', prediction: '1' }
   
 });
 
