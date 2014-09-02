@@ -1,34 +1,35 @@
 {
-  "author"              : {
-    "email": "martin@semiwa.org",
-    "name" : "Martin Franke",
-    "url"  : "http://MtnFranke.org"
-  },
-  "dependencies"        : {
-    "async"            : "*",
-    "node-arff"        : "*",
-    "underscore"       : "*",
-    "underscore.string": "*"
-  },
-  "description"         : "Proxy for calling weka classes from nodejs",
-  "devDependencies"     : {
-    "winston": "*"
-  },
-  "engines"             : {
-    "node": "~0.8.0"
-  },
-  "keywords"            : [
-    "machine learning",
-    "weka"
-  ],
-  "start"               : "node --stack-size=20000 app.js",
-  "license"             : "GPL-3.0+",
-  "main"                : "app.js",
-  "name"                : "node-weka",
-  "optionalDependencies": {},
-  "repository"          : {
-    "type": "git",
-    "url" : "git://github.com/MtnFranke/node-weka.git"
-  },
-  "version"             : "0.0.3"
+    "author": {
+        "email": "martin@semiwa.org",
+        "name": "Martin Franke",
+        "url": "http://MtnFranke.org"
+    },
+    "dependencies": {
+        "async": "*",
+        "node-arff": "*",
+        "underscore": "*",
+        "underscore.string": "*"
+    },
+    "description": "Proxy for calling weka classes from nodejs",
+    "devDependencies": {
+        "vows": "*",
+        "winston": "*"
+    },
+    "engines": {
+        "node": "~0.8.0"
+    },
+    "keywords": [
+        "machine learning",
+        "weka"
+    ],
+    "license": "GPL-3.0+",
+    "main": "app.js",
+    "name": "node-weka",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/MtnFranke/node-weka.git"
+    },
+    "start": "node --stack-size=20000 app.js",
+    "version": "0.0.5"
 }
