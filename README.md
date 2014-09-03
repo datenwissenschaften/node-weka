@@ -1,5 +1,11 @@
 # node-weka - nodejs wrapper for Weka functions
 
+[![Build Status](https://travis-ci.org/MtnFranke/node-weka.svg?branch=master)](https://travis-ci.org/MtnFranke/node-weka)
+[![Dependency Status](https://gemnasium.com/MtnFranke/node-weka.png)](https://gemnasium.com/MtnFranke/node-weka)
+[![Coverage Status](https://coveralls.io/repos/MtnFranke/node-weka/badge.png)](https://coveralls.io/r/MtnFranke/node-weka)
+
+[![NPM](https://nodei.co/npm/node-weka.png?downloads=true)](https://nodei.co/npm/node-weka/)
+
 ## Overview
 
 Provides a convenient wrapper for calling Weka functions from nodejs.
