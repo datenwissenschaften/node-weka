@@ -12,8 +12,10 @@
   },
   "description"         : "Proxy for calling weka classes from nodejs",
   "devDependencies"     : {
-    "vows"   : "*",
-    "winston": "*"
+    "vows"     : "*",
+    "winston"  : "*",
+    "istanbul" : "*",
+    "coveralls": "*"
   },
   "engines"             : {
     "node": "~0.8.0"
@@ -33,6 +35,6 @@
   "start"               : "node --stack-size=20000 app.js",
   "version"             : "0.0.7",
   "scripts"             : {
-    "test": "vows test.js --spec"
+    "test": "vows test.js --spec; istanbul cover test.js"
   }
 }
