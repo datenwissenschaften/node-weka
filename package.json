@@ -33,7 +33,7 @@
     "url" : "git://github.com/MtnFranke/node-weka.git"
   },
   "start"               : "node --stack-size=20000 app.js",
-  "version"             : "0.0.7",
+  "version"             : "0.0.8",
   "scripts"             : {
     "test": "vows test.js --spec; istanbul cover test.js"
   }

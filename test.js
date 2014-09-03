@@ -31,7 +31,7 @@ var _ = require('underscore');
 //});
 
 //Sample classification with SVM
-function sampleClassification(file, cb) {
+function sampleClassification(file, classifier, cb) {
   arff.load(file, function (err, data) {
 
     if (!_.isNull(err)) {
@@ -39,10 +39,9 @@ function sampleClassification(file, cb) {
       return;
     }
 
-    //See Weka Documentation
+    //See Weka Documentation for classifiers
     var options = {
-      //'classifier': 'weka.classifiers.bayes.NaiveBayes',
-      'classifier': 'weka.classifiers.functions.SMO',
+      'classifier': classifier,
       'params'    : ''
     };
 
@@ -113,6 +112,29 @@ var vows = require('vows'),
 // Create a Test Suite
 vows.describe('Test Weka Module').addBatch({
 
+  'running weka.classifiers.functions.notExistent on ./test/training.arff': {
+
+    topic: function () {
+
+      var outerCb = this.callback;
+
+      async.waterfall([
+        function (callback) {
+          sampleClassification('./test/training.arff', 'weka.classifiers.functions.notExistent', callback);
+        }
+      ], function (err, result) {
+        outerCb(err, result);
+      });
+
+    },
+
+    'we detect an handled error': function (err, stat) {
+      assert.isNotNull(err);
+      assert.isUndefined(stat);
+    }
+
+  },
+
   'running weka.classifiers.functions.SMO on ./test/training.arff': {
 
     topic: function () {
@@ -121,7 +143,7 @@ vows.describe('Test Weka Module').addBatch({
 
       async.waterfall([
         function (callback) {
-          sampleClassification('./test/training.arff', callback);
+          sampleClassification('./test/training.arff', 'weka.classifiers.functions.SMO', callback);
         }
       ], function (err, result) {
         outerCb(err, result);
