@@ -8,11 +8,11 @@ Provides a convenient wrapper for calling Weka functions from nodejs.
 
 * nodejs
 * npm
-* [weka](http://www.cs.waikato.ac.nz/~ml/weka/downloading.html)
+* java
 
 ## Installation
 
-Adjust the os/weka script to the weka directory and put it in your $PATH variable (resp. /usr/local/bin/weka) 
+    npm install node-weka
 
 ## Usage
 
