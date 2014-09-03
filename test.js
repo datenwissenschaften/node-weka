@@ -31,8 +31,8 @@ var _ = require('underscore');
 //});
 
 //Sample classification with SVM
-function sampleClassification(cb) {
-  arff.load('./test/training.arff', function (err, data) {
+function sampleClassification(file, cb) {
+  arff.load(file, function (err, data) {
 
     if (!_.isNull(err)) {
       cb(err);
@@ -121,7 +121,7 @@ vows.describe('Test Weka Module').addBatch({
 
       async.waterfall([
         function (callback) {
-          sampleClassification(callback);
+          sampleClassification('./test/training.arff', callback);
         }
       ], function (err, result) {
         outerCb(err, result);
