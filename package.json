@@ -25,7 +25,7 @@
     "weka"
   ],
   "license"             : "GPL-3.0+",
-  "main"                : "app.js",
+  "main"                : "lib/weka-lib.js",
   "name"                : "node-weka",
   "optionalDependencies": {},
   "repository"          : {
