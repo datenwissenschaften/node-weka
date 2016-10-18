@@ -105,6 +105,20 @@ function sampleFactorAnalysis(cb) {
   });
 }
 
+//Sample prediction from trained model
+function samplePrediction(model, test, classifier, cb) {
+
+    //See Weka Documentation for classifiers
+    var options = {
+        'classifier': classifier,
+        'params'    : ''
+    };
+
+    weka.predict(model, test, options, function (err, result) {
+        cb(err, result);
+    });
+}
+
 var vows = require('vows'),
     assert = require('assert'),
     async = require('async');
@@ -210,6 +224,60 @@ vows.describe('Test Weka Module').addBatch({
     'we got the same content as in "./test/test.json" as result': function (err, stat) {
       var fileJSON = require('./test/test.json');
       assert.deepEqual(fileJSON.correlation, stat.correlation);
+    }
+  },
+
+  'running weka.classifiers.functions.SMOreg on csv test and trained model': {
+
+    topic: function () {
+
+      var outerCb = this.callback;
+
+      async.waterfall([
+          function (callback) {
+              samplePrediction('./test/test_prediction.model', './test/apptest.csv', 'weka.classifiers.functions.SMO', callback);
+          }
+      ], function (err, result) {
+          outerCb(err, result);
+      });
+
+    },
+
+    'we got no error': function (err, stat) {
+        assert.isNull(err);
+    },
+
+    'we get the correct result': function (err, stat) {
+      assert.equal(stat.actual, '31110.584');
+      assert.equal(stat.predicted, '35269.273');
+      assert.equal(stat.error, '4158.689');
+    }
+  },
+
+  'running weka.classifiers.functions.SMOreg on arff test and trained model': {
+
+    topic: function () {
+
+      var outerCb = this.callback;
+
+      async.waterfall([
+        function (callback) {
+          samplePrediction('./test/test_prediction.model', './test/apptest.arff', 'weka.classifiers.functions.SMO', callback);
+        }
+      ], function (err, result) {
+        outerCb(err, result);
+      });
+
+    },
+
+    'we got no error': function (err, stat) {
+      assert.isNull(err);
+    },
+
+    'we get the correct result': function (err, stat) {
+      assert.equal(stat.actual, '31110.584');
+      assert.equal(stat.predicted, '35269.273');
+      assert.equal(stat.error, '4158.689');
     }
   }
 
