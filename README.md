@@ -1,3 +1,4 @@
+# DISCONTINUED! 
 # node-weka - nodejs wrapper for Weka functions
 
 [![Build Status](https://travis-ci.org/MtnFranke/node-weka.svg?branch=master)](https://travis-ci.org/MtnFranke/node-weka)
